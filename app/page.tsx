@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import {useMemo,useState} from "react";
 type U="fixo"|"dia"|"pessoa"|"pessoa-dia"; type C={id:number;name:string;value:number;unit:U};
 const brl=new Intl.NumberFormat("pt-BR",{style:"currency",currency:"BRL"});
@@ -10,7 +10,7 @@ export default function Home(){
  const total=useMemo(()=>costs.reduce((s,c)=>s+line(c,people,days),0),[costs,people,days]),factor=1-margin/100-fee/100,price=factor>0?total/factor:0,platform=price*fee/100,profit=price-platform-total,minimum=fee<100?total/(1-fee/100):0;
  const modeTo=(m:"stay"|"event")=>{setMode(m);setCosts(base[m]);setPeople(m==="stay"?6:40);setDays(m==="stay"?2:1)};
  const patch=(id:number,p:Partial<C>)=>setCosts(a=>a.map(c=>c.id===id?{...c,...p}:c)); const choose=(n:string,f:number)=>{setChannel(n);setFee(f)};
- return <main><header><div className="brand"><b>L</b><span>Lucro Lumiar</span></div><button className="link" onClick={()=>{modeTo(mode);setMargin(30);choose("Direto",0)}}>Limpar simulação</button></header>
+ return <main><header><div className="brand"><b>L</b><span>Hospedagem & Eventos</span></div><button className="link" onClick={()=>{modeTo(mode);setMargin(30);choose("Direto",0)}}>Limpar simulação</button></header>
  <section className="hero"><small>CALCULADORA DE PRECIFICAÇÃO</small><h1>Do custo ao preço certo, sem complicação.</h1><p>Informe os custos e sua meta de lucro. A calculadora sugere quanto cobrar pela hospedagem ou pelo evento.</p></section>
  <nav className="tabs"><button className={mode==="stay"?"active":""} onClick={()=>modeTo("stay")}>⌂ Hospedagem</button><button className={mode==="event"?"active":""} onClick={()=>modeTo("event")}>◎ Espaço para eventos</button></nav>
  <section className="workspace"><div className="forms"><article className="card"><Title n="1" title="Detalhes da locação" text="Defina o tamanho desta consulta."/><div className="two"><label>Quantidade de pessoas<input type="number" min="1" value={people} onChange={e=>setPeople(Math.max(1,+e.target.value))}/></label><label>{mode==="stay"?"Quantidade de diárias":"Dias de evento"}<input type="number" min="1" value={days} onChange={e=>setDays(Math.max(1,+e.target.value))}/></label></div></article>

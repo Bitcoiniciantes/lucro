@@ -1,10 +1,10 @@
-# Lucro Lumiar
+# Hospedagem & Eventos
 
 Calculadora web simples para sugerir preços de locação com base nos custos, nas taxas do canal de venda e na margem de lucro desejada.
 
 ## Acessar o aplicativo
 
-[Abra a versão publicada do Lucro Lumiar](https://lucro-lumiar.bitcoiniciantes.chatgpt.site)
+[Abra a versão publicada do Hospedagem & Eventos](https://lucro-lumiar.bitcoiniciantes.chatgpt.site)
 
 ## O que o aplicativo calcula
 
